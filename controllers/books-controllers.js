@@ -59,7 +59,7 @@ books.get("/", (req, res) => {
   
       .catch((err) => {
         res.status(404).json({
-          message: "page not found in index",
+          message: "page not found",
         });
       });
   });
@@ -73,9 +73,9 @@ books.get("/", (req, res) => {
       })
       .catch((err) => {
         res.status(404).json({
-          message: "page not found in show",
+          message: "page not found",
         });
-        console.log("seeds are missing");
+        console.log("book not found");
       });
   });
   

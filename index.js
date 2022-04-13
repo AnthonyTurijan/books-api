@@ -1,11 +1,13 @@
 //dependencies
 require('dotenv').config()
+const mongoose = require('mongoose')
 
-//require express
+//require dependencies
 const express = require('express')
 const methodOverride = require('method-override')
 const app = express()
 const cors = require('cors')
+const PORT = process.env.PORT
 
 //Express Settings
 app.set('views',__dirname + '/views')
@@ -16,6 +18,15 @@ app.use(express.urlencoded({ extended: true}))
 app.use(methodOverride('_method'))
 app.use(express.json())
 app.use(cors())
+
+//mongoose
+mongoose.connect(
+    process.env.MONGO_URI,
+    { useNewUrlParser: true, useUnifiedTopology: true },
+    () => {
+      console.log(" connected!");
+    }
+  );
 
 //main page
 app.get('/', (req,res)=>{
