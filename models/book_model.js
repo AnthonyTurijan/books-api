@@ -1,5 +1,6 @@
 //requiring mongoose
 const mongoose = require('mongoose')
+const { Schema } = mongoose
 
 //creating new Schema
 const bookSchema = new mongoose.Schema({
@@ -11,4 +12,5 @@ const bookSchema = new mongoose.Schema({
 })
 
 //exporting
-module.exports = mongoose.model('Book', bookSchema)
+const Book = mongoose.model('Book', bookSchema)
+module.exports = Book
